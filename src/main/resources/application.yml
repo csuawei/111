@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSourse
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://100.65.161.178:3306/MySQL80?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+    druid:
+      one:
+        max-active: 1000
+        min-idle: 20
+        max_wait: 2000
+
+
