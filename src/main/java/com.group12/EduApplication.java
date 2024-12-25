@@ -1,16 +1,14 @@
 package com.group12;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class EduApplication extends Application {
-
+@Slf4j
+@SpringBootApplication
+public class EduApplication {
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-
+        SpringApplication.run(EduApplication.class, args);
+        log.info("教育系统启动成功");
     }
 }
