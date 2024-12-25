@@ -1,15 +1,18 @@
 server:
-  port: 8080
+  port: 8080  #API服务访问端口
+logging:
+  level:
+    com.qersoft.dao: debug
 spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSourse
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://100.65.161.178:3306/MySQL80?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: 123456
+  datasource: # 通过spring定义数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动程序
+    url: jdbc:mysql:// /school?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username:
+    password:
 
     druid:
       one:
         max-active: 1000
         min-idle: 20
-        max_wait: 2000
+        max-wait: 2000
