@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.group12.entity.ZhOpTestEntity;
 import com.group12.service.ZhOpTestService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/zhOpTest")
 public class ZhOpTestController {
@@ -31,13 +33,21 @@ public class ZhOpTestController {
         return zhOpTestService.updateById(zhOpTestEntity);
     }
 
+    // @DeleteMapping("/delete/{id}")
+    // public boolean delete(@PathVariable Long id) {
+    //     return zhOpTestService.removeById(id);
+    // }
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable Long id) {
-        return zhOpTestService.removeById(id);
+        return zhOpTestService.deleteById(id);
     }
 
     @GetMapping("/page")
     public IPage<ZhOpTestEntity> page(@RequestParam int page, @RequestParam int size) {
         return zhOpTestService.page(new Page<>(page, size));
+    }
+    @GetMapping("/findByUsername")
+    public List<ZhOpTestEntity> findByUsername(@RequestParam String username) {
+        return zhOpTestService.findByUsername(username);
     }
 }
