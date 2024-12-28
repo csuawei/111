@@ -6,10 +6,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("examprochoose")
-public class ExamProChooseEntity {
+@TableName("exampro")
+public class ExamProEntity {
     @TableId(type = IdType.AUTO)
-    private Integer id;
+    private Long id;
     private String probody;
     private int diff;
     private int score;
@@ -19,4 +19,5 @@ public class ExamProChooseEntity {
     private String choose3;
     private String choose4;
     private String knowpoint;
+    private int protype;
 }
