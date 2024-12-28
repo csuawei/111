@@ -1,9 +1,13 @@
 package com.group12.dao;
 
-import com.group12.entity.SysDictTypeEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.group12.entity.ExamProEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface SystemDictTypeDao extends BaseMapper<SysDictTypeEntity>{
+public interface ExamProDao extends BaseMapper<ExamProEntity> {
+
+
+
+
 }
