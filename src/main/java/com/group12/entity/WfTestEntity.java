@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 @Data //lombok框架，不需要再写set、get方法
 @TableName("wf_test")//指定与实体类绑定的数据库表名
-public class wfTestEntity {//定义实体类
-    //@TableId(type=IdType.AUTO)
+public class WfTestEntity {//定义实体类
+    @TableId(type=IdType.AUTO)//自增长
     private int testId;
     private String subject;
     private int rule;
