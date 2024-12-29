@@ -12,4 +12,6 @@ public class WfRuleEntity {
     private int ruleId;
     private String ruleContent;
     private String ruleName;
+    private String createTime;
+    private String createBy;
 }

@@ -11,4 +11,6 @@ public class WfRuleVo {
     private int ruleName;
     private int page;
     private int pageLine;
+    private String createTime;
+    private String createBy;
 }

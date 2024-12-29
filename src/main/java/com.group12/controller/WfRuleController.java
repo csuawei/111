@@ -10,24 +10,34 @@ import vo.WfRuleVo;
 
 
 @RestController
-@RequestMapping("/wfTest")//请求路径
+@RequestMapping("wf_exam_rules/")//请求路径
 public class WfRuleController {
     @Autowired//把定义的service接口注入
     private WfRuleService wfRuleService;
 
-    @PostMapping("/insertTest")//导入试卷
-    public String insertTest(@RequestBody WfRuleEntity wfRuleEntity){
+    @PostMapping("addRule")//导入规则
+    public String addRule(@RequestBody WfRuleEntity wfRuleEntity){
         Integer i= wfRuleService.add(wfRuleEntity);
-        if(i==0){
-            return "sucess";
+        if(i>0){
+            return "success";
         }else {
             return "fail";
         }
     }
-    public IPage list(@RequestBody WfRuleVo wfRuleVo){
-        WfRuleEntity wfRuleEntity=new WfRuleEntity();
-        wfRuleEntity.setRuleId(wfRuleVo.getRuleId());
-        return wfRuleService.page(wfRuleEntity,wfRuleVo.getPage(),wfRuleVo.getPageLine());
+    @PostMapping("/deleteRule")
+    public void deleteRule(@RequestBody int id){
+        wfRuleService.delete(id);
+    }
+    @PostMapping("/modifyRule")
+    public Integer modifyRule(@RequestBody WfRuleEntity updatedRule){
+        Integer exsitingRule=wfRuleService.modify(updatedRule);
+        return exsitingRule;
+    }
+    @PostMapping("/page")
+    public IPage page(@RequestBody WfRuleVo wfRuleVo){
+       // WfRuleEntity wfRuleEntity=new WfRuleEntity();
+        //wfRuleEntity.setRuleId(wfRuleVo.getRuleId());
+        return wfRuleService.page(wfRuleVo);
 
     }
 
