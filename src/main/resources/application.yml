@@ -1,7 +1,8 @@
 server:
   port: 8080
   servlet:
-    context-path: /g12
+    context-path:
+#    context-path: /g12
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

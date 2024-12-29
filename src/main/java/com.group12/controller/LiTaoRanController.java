@@ -5,6 +5,7 @@ import com.group12.entity.AutomaticMarkEntity;
 import com.group12.service.AutomaticMarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vo.AutomaticMarkVo;
 
 import java.util.List;
 
@@ -26,11 +27,11 @@ public class LiTaoRanController {
         }
     }
 
-    @GetMapping("/page")
-    public IPage<AutomaticMarkEntity> page(AutomaticMarkEntity automaticEntity,
+    @GetMapping("page")
+    public IPage<AutomaticMarkEntity> page(AutomaticMarkVo automaticMarkVo,
                                            @RequestParam(defaultValue = "1") int page,
                                            @RequestParam(defaultValue = "10") int pageline) {
-        return automaticMarkService.page(automaticEntity, page, pageline);
+        return automaticMarkService.page(automaticMarkVo);
     }
 
     @GetMapping("/listByCondition")

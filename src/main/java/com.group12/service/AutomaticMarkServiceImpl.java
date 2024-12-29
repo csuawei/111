@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.group12.dao.AutomaticMarkDao;
 import com.group12.entity.AutomaticMarkEntity;
 import org.springframework.stereotype.Service;
+import vo.AutomaticMarkVo;
 
 import java.util.List;
 
@@ -21,20 +22,20 @@ public class AutomaticMarkServiceImpl extends ServiceImpl<AutomaticMarkDao,Autom
     }
 
     @Override
-    public IPage<AutomaticMarkEntity> page(AutomaticMarkEntity automaticMarkEntity,int page,int pageline) {
+    public IPage<AutomaticMarkEntity> page(AutomaticMarkVo vo) {
         LambdaQueryWrapper<AutomaticMarkEntity> query = Wrappers.lambdaQuery();
-        query.eq(AutomaticMarkEntity::getScore, automaticMarkEntity.getScore());
+        //query.eq(AutomaticMarkEntity::getScore, automaticMarkEntity.getScore());
 
-        int curPage=1;
+        int curPage = 1;
         int limit=10;
 
-        if (ObjectUtils.isNotEmpty(page)) {
-            curPage=page;
+        if (ObjectUtils.isNotEmpty(vo.getPage())) {
+            curPage=vo.getPage();
         }
-        if (ObjectUtils.isNotEmpty(pageline)) {
-            limit=pageline;
+        if (ObjectUtils.isNotEmpty(vo.getPageline())) {
+            limit=vo.getPage();
         }
-        IPage<AutomaticMarkEntity> ipage = Page.of(page, pageline);
+        IPage<AutomaticMarkEntity> ipage = Page.of(curPage,limit);
 
         return baseMapper.selectPage(ipage, query);
     }
@@ -77,7 +78,7 @@ public class AutomaticMarkServiceImpl extends ServiceImpl<AutomaticMarkDao,Autom
                     score = 1;
                 }
             }
-            record.setScore((long) score);
+            record.setScore(score);
             baseMapper.updateById(record);
         }
     }
