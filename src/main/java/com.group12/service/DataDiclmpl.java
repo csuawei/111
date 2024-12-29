@@ -6,12 +6,7 @@ import com.group12.entity.*;
 import org.springframework.stereotype.Service;
 
 @Service("datadicService")//首字母小写
-public class Datadiclmpl extends ServiceImpl<DatadicDao, DatadicEntity>
-        implements DatadicService {
-
-    @Override
-    public Integer add(DatadicEntity sysDictTypeEntity) {
-        return baseMapper.insert(sysDictTypeEntity);
-    }
+public class DataDiclmpl extends ServiceImpl<DataDicDao, DataDicEntity>
+        implements DataDicService {
 }
 
