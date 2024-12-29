@@ -2,6 +2,7 @@ package com.group12.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -24,11 +25,14 @@ public class AutomaticMarkServiceImpl extends ServiceImpl<AutomaticMarkDao,Autom
         LambdaQueryWrapper<AutomaticMarkEntity> query = Wrappers.lambdaQuery();
         query.eq(AutomaticMarkEntity::getScore, automaticMarkEntity.getScore());
 
-        if (page == 0) {
-            page = 1;
+        int curPage=1;
+        int limit=10;
+
+        if (ObjectUtils.isNotEmpty(page)) {
+            curPage=page;
         }
-        if (pageline == 0) {
-            pageline = 10;
+        if (ObjectUtils.isNotEmpty(pageline)) {
+            limit=pageline;
         }
         IPage<AutomaticMarkEntity> ipage = Page.of(page, pageline);
 

@@ -15,10 +15,10 @@ public class LiTaoRanController {
     @Autowired
     private AutomaticMarkService automaticMarkService;
 
-    @PostMapping("insertscore")
-    public String insertscore(@RequestBody AutomaticMarkEntity scores){
+    @PostMapping("insertquestion")
+    public String insertquestion(@RequestBody AutomaticMarkEntity questions){
 
-        Integer i = automaticMarkService.add(scores);
+        Integer i = automaticMarkService.add(questions);
         if(i==0){
             return "success";
         }else{
