@@ -12,6 +12,7 @@ public class ExamProEntity {
     private Long id;
     private String probody;
     private int diff;
+    private String course;
     private int score;
     private String ans;
     private String choose1;
@@ -20,4 +21,6 @@ public class ExamProEntity {
     private String choose4;
     private String knowpoint;
     private int protype;
+    private int deleted;
+
 }

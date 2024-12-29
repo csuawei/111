@@ -11,7 +11,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/two")
+@RequestMapping("/examPro")
 public class ExamProCont {
     @Autowired
     private ExamProService examProChooseService;
@@ -32,5 +32,26 @@ public class ExamProCont {
             return ResultUtil.fail("500","添加失败");
         }
     }
+
+    @PostMapping("/updataPro")
+    public Object updataPro(@RequestBody ExamProEntity examProEntity) {
+        int i = examProChooseService.getBaseMapper().updateById(examProEntity);
+        if(i == 1){
+            return ResultUtil.success(null,"更新成功");
+        }else {
+            return ResultUtil.fail("501","更新失败");
+        }
+    }
+
+    @PostMapping("/delPro")
+    public Object delPro(Integer id) {
+        int i = examProChooseService.getBaseMapper().deleteById(id);
+        if(i == 1){
+            return ResultUtil.success(null,"删除成功");
+        }else {
+            return ResultUtil.fail("502","删除失败");
+        }
+    }
+
 
 }
