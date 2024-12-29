@@ -9,9 +9,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Data
 @TableName("automaticmark")
 public class AutomaticMarkEntity {
-    @TableId
     private Long score;
-
-    private String answer;
+    private Long id;
+    private String correctAnswer;
+    private String studentAnswer;
+    private String questionContents;
+    private String questionType;
 
 }

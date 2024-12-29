@@ -21,6 +21,4 @@ public class ExamProEntity {
     private String choose4;
     private String knowpoint;
     private int protype;
-    private int deleted;
-
 }
