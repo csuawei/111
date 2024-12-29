@@ -7,9 +7,11 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import com.group12.dao.*;
 
-@Cacheable
-@MapperScan("com.group12.service")
+@Configuration
+@MapperScan("com.group12.dao")
 public class MybatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {

@@ -87,8 +87,8 @@ public class ExamProCont {
             //根据题目类型查询
             queryWrapper.like("protype",examProSearch.getProtype());
         }
-        IPage<ExamProEntity> iPage = examProChooseService.page(page, queryWrapper);
-        System.out.println("总记录数："+iPage.getRecords());
+        IPage<ExamProEntity> iPage = examProChooseService.getBaseMapper().selectPage(page, queryWrapper);
+        //System.out.println("总记录数："+iPage.getRecords());
         return ResultUtil.success(iPage);
     }
 }
