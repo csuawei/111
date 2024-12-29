@@ -14,6 +14,7 @@ public class DataDicEntity {
     @TableId(type = IdType.AUTO)
     private Long id;
     private String dicname;
+    private String description;
     private String dictype;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createtime;
